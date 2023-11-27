@@ -4,7 +4,11 @@
 ## AnyKernel setup
 # begin properties
 properties() { '
-kernel.string=aRiseKernel By Prashant
+kernel.string=Mimir Kernel
+kernel.for=EAS
+kernel.compiler=Nexus Clang 14
+kernel.made=Vhmit
+kernel.version=4.4.302
 do.devicecheck=1
 do.modules=0
 do.systemless=1
