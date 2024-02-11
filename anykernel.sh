@@ -4,35 +4,38 @@
 ## AnyKernel setup
 # begin properties
 properties() { '
-kernel.string=Mimir Kernel
-kernel.for=EAS
-kernel.compiler=Nexus Clang 14
-kernel.made=Vhmit
-kernel.version=4.4.302
+kernel.string=fenrir kernel
+kernel.for=HMP+KSU
+kernel.compiler=AOSP Clang 17.0.3
+kernel.made=vulkan-ops
+kernel.maintainer=Vhmit, Tilt
+kernel.version=4.9.337
 do.devicecheck=1
 do.modules=0
 do.systemless=1
 do.cleanup=1
 do.cleanuponabort=0
-device.name1=lavender
+device.name1=ocean
 supported.versions=
 supported.patchlevels=
 '; } # end properties
 
 # shell variables
 block=/dev/block/bootdevice/by-name/boot;
-is_slot_device=0;
+is_slot_device=1;
 ramdisk_compression=auto;
 patch_vbmeta_flag=auto;
 
 ## AnyKernel methods (DO NOT CHANGE)
 # import patching functions/variables - see for reference
-. tools/ak3-core.sh;
+. tools/ak3-core.sh && attributes;
 
 ## AnyKernel file attributes
 # set permissions/ownership for included ramdisk files
-chmod -R 750 $ramdisk/*;
-chown -R root:root $ramdisk/*;
+attributes() {
+set_perm_recursive 0 0 755 644 $ramdisk/*;
+set_perm_recursive 0 0 750 750 $ramdisk/init* $ramdisk/sbin;
+} # end attributes
 
 ## AnyKernel boot install
 dump_boot;

@@ -472,6 +472,7 @@ fi;
 KERNEL_FOR="$(file_getprop anykernel.sh kernel.for)";
 KERNEL_COMPILER="$(file_getprop anykernel.sh kernel.compiler)";
 KERNEL_MADE="$(file_getprop anykernel.sh kernel.made)";
+KERNEL_MAINTAINER="$(file_getprop anykernel.sh kernel.maintainer)";
 KERNEL_VERSION="$(file_getprop anykernel.sh kernel.version)";
 DEVICE_NAME="$(file_getprop anykernel.sh device.name1)";
 ui_print "- Introducing $(file_getprop anykernel.sh kernel.string)";
@@ -482,6 +483,7 @@ ui_print "-- Variant        : $KERNEL_FOR";
 ui_print "-- Compiler       : $KERNEL_COMPILER";
 ui_print "-- Device         : $DEVICE_NAME";
 ui_print "-- Maintainer     : $KERNEL_MADE";
+ui_print "-- Co-Maintainer  : $KERNEL_MAINTAINER";
 ui_print "=======================================";
 
 setup_env;
